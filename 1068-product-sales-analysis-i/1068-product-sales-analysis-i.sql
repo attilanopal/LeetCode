@@ -1,4 +1,3 @@
-SELECT pr.product_name, sal.year, sal.price FROM Sales sal, Product pr
-WHERE
-  sal.product_id = pr.product_id
-;
+-- Write your PostgreSQL query statement below
+SELECT product_name, year, price FROM SALES
+JOIN Product USING(product_id);
