@@ -1,7 +1,4 @@
+-- Write your PostgreSQL query statement below
 SELECT name FROM Employee
-WHERE id in (
-    SELECT managerId FROM Employee
-    GROUP BY managerId HAVING 
-    count(managerId) >= 5
-)
-;
+WHERE id IN (SELECT managerId FROM Employee
+GROUP BY managerId HAVING COUNT(managerID) >= 5)
