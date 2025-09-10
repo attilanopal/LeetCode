@@ -1,13 +1,6 @@
-SELECT st.student_id, st.student_name, su.subject_name, count(ex.subject_name) as attended_exams
-FROM
-  Students st
-  CROSS JOIN
-  Subjects su
-  LEFT JOIN
-  Examinations ex
-  ON
-    st.student_id = ex.student_id AND
-    su.subject_name = ex.subject_name
-GROUP BY st.student_id, su.subject_name
-ORDER BY st.student_id, su.subject_name ASC
-;
+-- Write your PostgreSQL query statement below
+SELECT stud.student_id, stud.student_name, sub.subject_name, COUNT(exa.subject_name) AS attended_exams
+FROM Students stud CROSS JOIN  subjects sub
+   LEFT JOIN examinations exa ON stud.student_id = exa.student_id AND sub.subject_name = exa.subject_name 
+GROUP BY stud.student_id, stud.student_name, sub.subject_name
+ORDER BY stud.student_id, stud.student_name, sub.subject_name;
