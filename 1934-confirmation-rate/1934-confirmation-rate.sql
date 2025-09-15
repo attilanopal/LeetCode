@@ -1,11 +1,4 @@
-SELECT si.user_id , 
-       IFNULL(ROUND(SUM(CASE WHEN con.action = 'confirmed' THEN 1 ELSE 0 END)/COUNT(con.action),2),0) AS confirmation_rate
-FROM
-  Signups si
-  LEFT JOIN
-  Confirmations con
-  ON
-    si.user_id = con.user_id
-GROUP BY si.user_id
-ORDER BY si.user_id
-;
+-- Write your PostgreSQL query statement below
+
+SELECT s.user_id, ROUND(AVG((CASE WHEN conf.action = 'confirmed' THEN 1 ELSE 0 END)),2) AS confirmation_rate FROM confirmations conf right join signups s USING(user_id)
+GROUP BY user_id;
